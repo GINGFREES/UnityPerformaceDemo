@@ -17,18 +17,13 @@ namespace PerformanceDemo.Demo2D.Inspector
             ParticleAuraView wnd = target as ParticleAuraView;
             if (fps == 0)
             {
-                fps = Application.targetFrameRate;
+                fps = wnd.Fps;
             }
             fps = EditorGUILayout.IntField("Fps:", fps);
             particleCount = EditorGUILayout.IntField("Particle Count :", particleCount);
 
             wnd.Fps = fps;
             wnd.ParticleCount = particleCount;
-
-            if (GUILayout.Button("Set Fps"))
-            {
-                wnd.SetFps();
-            }
 
             if (GUILayout.Button("InstantiateAuraView"))
             {
