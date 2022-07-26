@@ -10,7 +10,6 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 120;
         Debug.LogWarning($"[Lucian :] screen refresh rate : {Screen.currentResolution.refreshRate}");
         Debug.LogWarning($"[Lucian :] current frame rate : {Application.targetFrameRate}");
     }
