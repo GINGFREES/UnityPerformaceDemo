@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -18,7 +19,7 @@ namespace PerformanceDemo.Demo2D
         private int fpsCount = 0;
         private float updateInterval = 0.1f;
         private float lastUpdateFpsTime = 0;
-        private float lastRenderTime = 0;
+        //private float lastRenderTime = 0;
 
 
         public int Fps
@@ -65,17 +66,6 @@ namespace PerformanceDemo.Demo2D
             GC.Collect();
         }
 
-        private void OnGUI()
-        {
-            float tempFps = (Fps == -1) ? 60 : (float)Fps;
-            if (Time.realtimeSinceStartup - lastRenderTime < (1f / tempFps))
-            {
-                return;
-            }
-            lastRenderTime = Time.realtimeSinceStartup;
-            renderCamera.Render();
-        }
-
         private void FixedUpdate()
         {
             float current = Time.realtimeSinceStartup;
@@ -83,8 +73,6 @@ namespace PerformanceDemo.Demo2D
             {
                 lastUpdateFpsTime = Time.realtimeSinceStartup;
             }
-
-            fpsCount++;
 
             if (current > lastUpdateFpsTime + updateInterval)
             {
@@ -96,6 +84,15 @@ namespace PerformanceDemo.Demo2D
             }
         }
 
+        private void RenderCall()
+        {
+            renderCamera.Render();
+            fpsCount++;
+        }
 
+        private void Start()
+        {
+            InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
+        }
     }
 }
