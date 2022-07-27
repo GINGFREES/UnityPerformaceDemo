@@ -14,12 +14,13 @@ namespace PerformanceDemo.Demo2D
         [SerializeField] private Transform particleRoot;
         [SerializeField] private GameObject auraParticleObj;
         [SerializeField, HideInInspector] private int particleCout;
+        [SerializeField, HideInInspector] private int particleSpeedRate;
 
         private List<GameObject> particleList = new List<GameObject>();
         private int fpsCount = 0;
         private float updateInterval = 0.1f;
         private float lastUpdateFpsTime = 0;
-        private float lastRenderTime = 0;
+        //private float lastRenderTime = 0;
 
 
         public int Fps
@@ -32,6 +33,12 @@ namespace PerformanceDemo.Demo2D
         {
             get => particleCout;
             set => particleCout = value;
+        }
+
+        public int ParticleSpeedRate
+        {
+            get => particleSpeedRate;
+            set => particleSpeedRate = value;
         }
 
         public void CreateAuraParticeObj()
@@ -98,27 +105,27 @@ namespace PerformanceDemo.Demo2D
             }
         }
 
-        private void Update()
-        {
-            if (Time.realtimeSinceStartup - lastRenderTime < (1f / (float)Fps))
-            {
-                return;
-            }
-            lastRenderTime = Time.realtimeSinceStartup;
-
-            renderCamera.Render();
-            fpsCount++;
-        }
-
-        //private void RenderCall()
+        //private void Update()
         //{
+        //    if (Time.realtimeSinceStartup - lastRenderTime < (1f / (float)Fps))
+        //    {
+        //        return;
+        //    }
+        //    lastRenderTime = Time.realtimeSinceStartup;
+
         //    renderCamera.Render();
         //    fpsCount++;
         //}
 
-        //private void Start()
-        //{
-        //    InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
-        //}
+        private void RenderCall()
+        {
+            renderCamera.Render();
+            fpsCount++;
+        }
+
+        private void Start()
+        {
+            InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
+        }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -11,6 +9,7 @@ namespace PerformanceDemo.Demo2D.Inspector
     {
         private int fps;
         private int particleCount;
+        private int particleSpeedRate;
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -19,11 +18,18 @@ namespace PerformanceDemo.Demo2D.Inspector
             {
                 fps = wnd.Fps;
             }
+
+            fps = wnd.Fps;
+            particleCount = wnd.ParticleCount;
+            particleSpeedRate = wnd.ParticleSpeedRate;
+
             fps = EditorGUILayout.IntField("Fps:", fps);
             particleCount = EditorGUILayout.IntField("Particle Count :", particleCount);
+            particleSpeedRate = EditorGUILayout.IntField("Particle Speed Rate :", particleSpeedRate);
 
             wnd.Fps = fps;
             wnd.ParticleCount = particleCount;
+            wnd.ParticleSpeedRate = particleSpeedRate;
 
             if (GUILayout.Button("InstantiateAuraView"))
             {
