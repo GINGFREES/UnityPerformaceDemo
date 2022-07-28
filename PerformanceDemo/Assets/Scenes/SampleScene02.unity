@@ -375,6 +375,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 888518897}
     - target: {fileID: 1117304050970165323, guid: d54fe41eae2574aa28bc220708b4f1cb, type: 3}
+      propertyPath: circleRadius
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117304050970165323, guid: d54fe41eae2574aa28bc220708b4f1cb, type: 3}
       propertyPath: renderCamera
       value: 
       objectReference: {fileID: 1701818051}
@@ -869,12 +873,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301678045}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9041f8fb163db4180ac1d3e900f71ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fpsShow: {fileID: 774773061}
+  viewCount: 4
 --- !u!4 &301678047
 Transform:
   m_ObjectHideFlags: 0
@@ -1462,6 +1466,10 @@ PrefabInstance:
       propertyPath: effectObj
       value: 
       objectReference: {fileID: 1715492437}
+    - target: {fileID: 1117304050970165323, guid: d54fe41eae2574aa28bc220708b4f1cb, type: 3}
+      propertyPath: circleRadius
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1117304050970165323, guid: d54fe41eae2574aa28bc220708b4f1cb, type: 3}
       propertyPath: renderCamera
       value: 
@@ -3405,6 +3413,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449145392}
     - target: {fileID: 1117304050970165323, guid: d54fe41eae2574aa28bc220708b4f1cb, type: 3}
+      propertyPath: circleRadius
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117304050970165323, guid: d54fe41eae2574aa28bc220708b4f1cb, type: 3}
       propertyPath: renderCamera
       value: 
       objectReference: {fileID: 469560109}
@@ -4343,6 +4355,10 @@ PrefabInstance:
       propertyPath: effectObj
       value: 
       objectReference: {fileID: 1733997074}
+    - target: {fileID: 1117304050970165323, guid: d54fe41eae2574aa28bc220708b4f1cb, type: 3}
+      propertyPath: circleRadius
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1117304050970165323, guid: d54fe41eae2574aa28bc220708b4f1cb, type: 3}
       propertyPath: renderCamera
       value: 

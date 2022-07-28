@@ -1,22 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-
-public class Main : MonoBehaviour
+namespace PerformanceDemo
 {
-    public TMP_Text fpsShow;
+    using UnityEngine;
+    using IModels;
+    using Demo2D;
 
-    // Start is called before the first frame update
-    void Start()
+    public class Main : MonoBehaviour
     {
-        Debug.LogWarning($"[Lucian :] screen refresh rate : {Screen.currentResolution.refreshRate}");
-        Debug.LogWarning($"[Lucian :] current frame rate : {Application.targetFrameRate}");
-    }
+        // Start is called before the first frame update
+        [SerializeField] private int viewCount = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        fpsShow.text = $"FPS: {1f / Time.deltaTime}";
+        private void EffectCall()
+        {
+            if (Demo2DManager.Instance.viewCount < viewCount) return;
+            Demo2DManager.Instance.EffectCallAll();
+        }
+
+        private void Start()
+        {
+            if (viewCount > 0)
+            {
+                InvokeRepeating("EffectCall", 0f, (1f / 360f));
+            }
+        }
+
+        private void OnDestroy()
+        {
+            Demo2DManager.CleanUp();
+        }
     }
 }
