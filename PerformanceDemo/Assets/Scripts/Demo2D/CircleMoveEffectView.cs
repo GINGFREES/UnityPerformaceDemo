@@ -19,6 +19,7 @@ namespace PerformanceDemo.Demo2D
         //private float lastRenderTime = 0f;
         private int fpsCount = 0;
         private float angle = 0f;
+        private float lastUpdateMoveTime = 0f;
 
         public int Fps
         {
@@ -40,14 +41,7 @@ namespace PerformanceDemo.Demo2D
                 lastUpdateFpsTime = Time.realtimeSinceStartup;
             }
 
-            if (current > lastUpdateFpsTime + (1f / ((float)Fps)))
-            {
-                angle += angleAdd;
-                if (angle > 360f) angle = angleAdd;
-                effectObj.transform.localPosition =
-                    new Vector3(circleRadius * Mathf.Sin(angle), circleRadius * Mathf.Cos(angle));
-                effectObj.transform.localEulerAngles = new Vector3(0f, 0f, 90f + angle);
-            }
+
 
             if (current > lastUpdateFpsTime + updateInterval)
             {
@@ -59,21 +53,26 @@ namespace PerformanceDemo.Demo2D
             }
         }
 
+        private void EffectCall()
+        {
+            angle += angleAdd;
+            if (angle > 360f) angle = angleAdd;
+            float cornerAngle = (2f * Mathf.PI / (360f / angleAdd)) * angle;
+            effectObj.transform.localPosition =
+                new Vector3(circleRadius * Mathf.Sin(cornerAngle), circleRadius * Mathf.Cos(cornerAngle));
+        }
+
         private void RenderCall()
         {
             renderCamera.Render();
             fpsCount++;
-
-            //angle += angleAdd;
-            //if (angle > 360f) angle = angleAdd;
-            //effectObj.transform.localPosition =
-            //    new Vector3(circleRadius * Mathf.Sin(angle), circleRadius * Mathf.Cos(angle));
         }
 
         private void Start()
         {
             effectObj.transform.localPosition = new Vector3(0f, circleRadius, 0f);
             InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
+            InvokeRepeating("EffectCall", 0f, (1f / 360f));
         }
 
     }
