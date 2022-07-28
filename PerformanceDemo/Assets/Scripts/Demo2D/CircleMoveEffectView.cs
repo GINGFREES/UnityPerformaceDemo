@@ -26,6 +26,22 @@ namespace PerformanceDemo.Demo2D
             set => angleAdd = value;
         }
 
+        public void EffectCall()
+        {
+            angle += angleAdd;
+            if (angle > 360f) angle = angleAdd;
+            float cornerAngle = (2f * Mathf.PI / (360f / angleAdd)) * angle;
+            effectObj.transform.localPosition =
+                new Vector3(circleRadius * Mathf.Sin(cornerAngle), circleRadius * Mathf.Cos(cornerAngle));
+        }
+
+        private void Start()
+        {
+            effectObj.transform.localPosition = new Vector3(0f, circleRadius, 0f);
+            InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
+            Demo2DManager.Instance.AddView(this);
+        }
+
         private void Update()
         {
             float current = Time.realtimeSinceStartup;
@@ -41,22 +57,6 @@ namespace PerformanceDemo.Demo2D
                 lastUpdateFpsTime = current;
                 fpsCount = 0;
             }
-        }
-
-        public void EffectCall()
-        {
-            angle += angleAdd;
-            if (angle > 360f) angle = angleAdd;
-            float cornerAngle = (2f * Mathf.PI / (360f / angleAdd)) * angle;
-            effectObj.transform.localPosition =
-                new Vector3(circleRadius * Mathf.Sin(cornerAngle), circleRadius * Mathf.Cos(cornerAngle));
-        }
-
-        private void Start()
-        {
-            effectObj.transform.localPosition = new Vector3(0f, circleRadius, 0f);
-            InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
-            Demo2DManager.Instance.AddView(this);
         }
 
     }

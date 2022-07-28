@@ -5,7 +5,7 @@
 
     public abstract class View : MonoBehaviour
     {
-        [SerializeField, HideInInspector] protected int fps;
+        [SerializeField] protected int fps;
         [SerializeField] protected TMP_Text fpsText;
         [SerializeField] protected Camera renderCamera;
 

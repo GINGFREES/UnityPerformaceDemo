@@ -8,6 +8,7 @@ namespace PerformanceDemo
     {
         // Start is called before the first frame update
         [SerializeField] private int viewCount = 0;
+        [SerializeField, Min(1f)] private float duration = 1f;
 
         private void EffectCall()
         {
@@ -19,7 +20,7 @@ namespace PerformanceDemo
         {
             if (viewCount > 0)
             {
-                InvokeRepeating("EffectCall", 0f, (1f / 360f));
+                InvokeRepeating("EffectCall", 0f, (duration / 360f));
             }
         }
 
