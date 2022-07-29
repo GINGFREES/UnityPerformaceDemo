@@ -748,7 +748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9041f8fb163db4180ac1d3e900f71ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fpsShow: {fileID: 774773061}
+  viewCount: 0
+  duration: 1
 --- !u!4 &301678047
 Transform:
   m_ObjectHideFlags: 0
@@ -1440,11 +1441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697735174586437321, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_CellSize.x
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7697735174586437321, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_CellSize.y
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8042714793161404756, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_Layer
@@ -2152,11 +2153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697735174586437321, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_CellSize.x
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7697735174586437321, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_CellSize.y
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8042714793161404756, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_Layer
@@ -2217,6 +2218,7 @@ MonoBehaviour:
   particleRoot: {fileID: 782385122}
   auraParticleObj: {fileID: 6087015131390348643, guid: 8167658c3654544de85db6c3a8e744f3, type: 3}
   particleCout: 0
+  particleSpeedRate: 0
 --- !u!1 &861584104
 GameObject:
   m_ObjectHideFlags: 0
@@ -3708,11 +3710,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697735174586437321, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_CellSize.x
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7697735174586437321, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_CellSize.y
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8042714793161404756, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_Layer
@@ -3773,6 +3775,7 @@ MonoBehaviour:
   particleRoot: {fileID: 1769134647}
   auraParticleObj: {fileID: 6087015131390348643, guid: 1640424c5422044478b6bdcf8b24e116, type: 3}
   particleCout: 0
+  particleSpeedRate: 0
 --- !u!1 &1825153941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,11 +4193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697735174586437321, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_CellSize.x
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7697735174586437321, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_CellSize.y
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8042714793161404756, guid: e8575a62fe518410aa44b1f24f267573, type: 3}
       propertyPath: m_Layer
@@ -4255,6 +4258,7 @@ MonoBehaviour:
   particleRoot: {fileID: 1905206527}
   auraParticleObj: {fileID: 6087015131390348643, guid: 9b2b6fc62a4984e7cbc4dbe313e6336f, type: 3}
   particleCout: 0
+  particleSpeedRate: 0
 --- !u!1 &1915957372
 GameObject:
   m_ObjectHideFlags: 0
@@ -4701,3 +4705,4 @@ MonoBehaviour:
   particleRoot: {fileID: 648849591}
   auraParticleObj: {fileID: 6087015131390348643, guid: 8b7e723f95edf4863a1dac74142d317d, type: 3}
   particleCout: 0
+  particleSpeedRate: 0

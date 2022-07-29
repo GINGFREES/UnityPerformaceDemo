@@ -1,11 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-
 namespace PerformanceDemo.Demo2D
 {
+    using System;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using TMPro;
+
     public class ParticleAuraView : MonoBehaviour
     {
         [SerializeField] private Camera renderCamera;
@@ -14,14 +13,11 @@ namespace PerformanceDemo.Demo2D
         [SerializeField] private Transform particleRoot;
         [SerializeField] private GameObject auraParticleObj;
         [SerializeField, HideInInspector] private int particleCout;
-        [SerializeField, HideInInspector] private int particleSpeedRate;
 
         private List<GameObject> particleList = new List<GameObject>();
         private int fpsCount = 0;
         private float updateInterval = 0.1f;
         private float lastUpdateFpsTime = 0;
-        //private float lastRenderTime = 0;
-
 
         public int Fps
         {
@@ -33,12 +29,6 @@ namespace PerformanceDemo.Demo2D
         {
             get => particleCout;
             set => particleCout = value;
-        }
-
-        public int ParticleSpeedRate
-        {
-            get => particleSpeedRate;
-            set => particleSpeedRate = value;
         }
 
         public void CreateAuraParticeObj()
@@ -60,20 +50,6 @@ namespace PerformanceDemo.Demo2D
                     GameObject target = Instantiate(auraParticleObj, particleRoot);
                     target.transform.localScale = Vector3.one;
                     newParticleList.Add(target);
-                    ParticleSystem.MainModule mainModule = target.GetComponent<ParticleSystem>().main;
-                    mainModule.simulationSpeed = 1f;
-                    var childParticles = target.transform.GetComponentsInChildren<ParticleSystem>();
-                    int count = 0;
-                    foreach (var p in childParticles)
-                    {
-                        if (count == 0)
-                        {
-                            count++;
-                            continue;
-                        }
-                        mainModule = p.main;
-                        mainModule.simulationSpeed = 5f;
-                    }
                 }
 
                 if (i < particleList.Count && i >= particleCout)
@@ -87,7 +63,7 @@ namespace PerformanceDemo.Demo2D
             GC.Collect();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             float current = Time.realtimeSinceStartup;
             if (lastUpdateFpsTime == 0)
@@ -104,18 +80,6 @@ namespace PerformanceDemo.Demo2D
                 fpsCount = 0;
             }
         }
-
-        //private void Update()
-        //{
-        //    if (Time.realtimeSinceStartup - lastRenderTime < (1f / (float)Fps))
-        //    {
-        //        return;
-        //    }
-        //    lastRenderTime = Time.realtimeSinceStartup;
-
-        //    renderCamera.Render();
-        //    fpsCount++;
-        //}
 
         private void RenderCall()
         {
