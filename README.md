@@ -26,13 +26,13 @@ Demo performance for each case about fps and memory
 * 不同 fps 下 3D 動畫播放的呈現與效果
 * 不同 fps 下 HDRP 動畫效果的呈現
 * 不同 fps 下 圖片在不同畫質的情形下,呈現的動畫效果
+* 不同 fps 下 Slot 滾動效果展示
 
 ### 數據整理
 * Drawcall 增加與 fps 呈現
 * 高幀數的動畫對記憶體的影響與畫面呈現效果(ex. 360 幀序列圖)
 * 不同畫質圖片資源的相關數據
 * 不同硬體規格下能呈現的畫質數據整理
-
 
 ### 針對不同 fps 下資源管控
 * 圖片資源的規劃與整理方式
