@@ -10,7 +10,6 @@
 
     public class SlotEffectView : View, IView
     {
-        [SerializeField] private SpriteAtlas spriteAtlas;
         [SerializeField] private RectTransform[] imageRootList;
         [SerializeField] private float upperEdge;
         [SerializeField] private float downEdge;
@@ -49,6 +48,7 @@
                 if (imageRootList[i].localPosition.y < downEdge)
                 {
                     imageRootList[i].localPosition = new Vector3(0f, upperEdge + lazyImageHeight.Value - move, 0f);
+                    imageRootList[i].GetComponent<SlotEffectImage>().RandomImage();
                     needAddIndex = true;
                 }
 
@@ -74,10 +74,14 @@
 
             for (int i = 0; i < imageRootList.Length; ++i)
             {
-                if (imageRootList[i].localPosition.y < indexPosList[nextIndexDics[i]].y)
+                if (imageRootList[i].localPosition.y <= indexPosList[nextIndexDics[i]].y)
                 {
-                    imageRootList[i].localPosition = indexPosList[nextIndexDics[i]];
+                    for (int j = 0; j < imageRootList.Length; j++)
+                    {
+                        imageRootList[j].localPosition = indexPosList[nextIndexDics[j]];
+                    }
                     isStop = false;
+                    break;
                 }
             }
         }
@@ -128,6 +132,7 @@
             for (int i = 0; i < imageRootList.Length; ++i)
             {
                 indexPosList.Add(pos);
+                imageRootList[i].GetComponent<SlotEffectImage>().RandomImage();
                 pos -= new Vector3(0f, 170f, 0f);
             }
 
