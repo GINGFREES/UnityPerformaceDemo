@@ -37,5 +37,6 @@ namespace PerformanceDemo.Demo2D
             return sequenceSprites[name];
         }
 
+        public IView GetViewByIndex(int index) => viewList[index];
     }
 }

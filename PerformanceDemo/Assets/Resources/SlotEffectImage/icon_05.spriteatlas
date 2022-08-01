@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: icon_05
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: b51de56f4ceb94c5180bc162ae6be5d5, type: 3}
+    totalSpriteSurfaceArea: 2700000
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 38270eb0a8b5147e5b7370b983099f94, type: 3}
+  - {fileID: 21300000, guid: 5cb21ae01a16b418fb077ff9f39ca370, type: 3}
+  - {fileID: 21300000, guid: 4bc8f4719397c48c987881cfed872177, type: 3}
+  - {fileID: 21300000, guid: 3a359102610064ad69bd07c29ead88b6, type: 3}
+  - {fileID: 21300000, guid: 3dbe3813866154864b754605bfea5324, type: 3}
+  - {fileID: 21300000, guid: 933a55630ee164febaaf1639d3e30dee, type: 3}
+  - {fileID: 21300000, guid: c7f1a7f334c75403987f8f86a183427e, type: 3}
+  - {fileID: 21300000, guid: d83f1344343764acc96665217c27f024, type: 3}
+  - {fileID: 21300000, guid: 2c57ea743c0e44ab8a83afc0ad97bfda, type: 3}
+  - {fileID: 21300000, guid: cd1c3b25a52ce4ec68a866eab6d58d8e, type: 3}
+  - {fileID: 21300000, guid: 900c3f55274184ea2a12f93698f10392, type: 3}
+  - {fileID: 21300000, guid: 4fc743653906b4943bbbfaa076b8fcdc, type: 3}
+  - {fileID: 21300000, guid: 3e27e095d2e4a4c3c80879067c2e67c2, type: 3}
+  - {fileID: 21300000, guid: 608ffcb5fac62412f984910b5d275674, type: 3}
+  - {fileID: 21300000, guid: eff6ce66bcbf4422db73ad894e4c5edb, type: 3}
+  - {fileID: 21300000, guid: 636b3287ff20149a1bd536ff196406a8, type: 3}
+  - {fileID: 21300000, guid: f72bbdc7eec894a9ba8b1e34be971c02, type: 3}
+  - {fileID: 21300000, guid: c070a0582042f4858af55ffb6d974971, type: 3}
+  - {fileID: 21300000, guid: e14cdee8c8d934f7385c010e6ac6c9e7, type: 3}
+  - {fileID: 21300000, guid: 71265839f488f44f1a8b3758f6912e41, type: 3}
+  - {fileID: 21300000, guid: 7f7203894a2354c0b928b107800d422e, type: 3}
+  - {fileID: 21300000, guid: 9da066a90ca2c4696a23b4bccc395dc8, type: 3}
+  - {fileID: 21300000, guid: a97a29a9079274793a80a56e0b8ffe79, type: 3}
+  - {fileID: 21300000, guid: 475e0cd9bdbc04ec8ba19fc0c102bfae, type: 3}
+  - {fileID: 21300000, guid: e85418da283e44a8294a329ee87ec172, type: 3}
+  - {fileID: 21300000, guid: 2053393cfe4f34ac6b1db77606c4051b, type: 3}
+  - {fileID: 21300000, guid: 80c2f3ecbfdab44b4bad6a4f27ade47e, type: 3}
+  - {fileID: 21300000, guid: 8459a02dc8b834859ae210ee96e6e391, type: 3}
+  - {fileID: 21300000, guid: 0dfb86edc82ac423db28789e8f4efd54, type: 3}
+  - {fileID: 21300000, guid: c37bb05fa9da94166a0ef5aced964aaa, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Icon_05_24
+  - Icon_05_13
+  - Icon_05_06
+  - Icon_05_05
+  - Icon_05_18
+  - Icon_05_26
+  - Icon_05_03
+  - Icon_05_14
+  - Icon_05_20
+  - Icon_05_28
+  - Icon_05_10
+  - Icon_05_29
+  - Icon_05_09
+  - Icon_05_08
+  - Icon_05_12
+  - Icon_05_00
+  - Icon_05_15
+  - Icon_05_23
+  - Icon_05_01
+  - Icon_05_11
+  - Icon_05_02
+  - Icon_05_17
+  - Icon_05_07
+  - Icon_05_22
+  - Icon_05_21
+  - Icon_05_27
+  - Icon_05_04
+  - Icon_05_25
+  - Icon_05_16
+  - Icon_05_19
+  m_RenderDataMap: {}
+  m_Tag: icon_05
+  m_IsVariant: 0
