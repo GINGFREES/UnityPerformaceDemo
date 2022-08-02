@@ -1,4 +1,4 @@
-﻿namespace PerformanceDemo.Demo2D.Models
+﻿namespace PerformanceDemo.Models
 {
     using UnityEngine;
     using TMPro;

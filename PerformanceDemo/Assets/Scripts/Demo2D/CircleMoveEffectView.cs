@@ -39,7 +39,7 @@ namespace PerformanceDemo.Demo2D
         {
             effectObj.transform.localPosition = new Vector3(0f, circleRadius, 0f);
             InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
-            Demo2DManager.Instance.AddView(this);
+            EffectManager.Instance.AddView(this);
         }
 
         private void Update()

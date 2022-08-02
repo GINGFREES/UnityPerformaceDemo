@@ -1,4 +1,4 @@
-namespace PerformanceDemo.Demo2D
+namespace PerformanceDemo
 {
     using System;
     using System.Collections.Generic;
@@ -6,12 +6,12 @@ namespace PerformanceDemo.Demo2D
     using UnityEngine.U2D;
     using IModels;
 
-    public class Demo2DManager
+    public class EffectManager
     {
-        private static Lazy<Demo2DManager> lazyDemo2DManager =
-            new Lazy<Demo2DManager>(() => new Demo2DManager());
+        private static Lazy<EffectManager> lazyEffectManager =
+            new Lazy<EffectManager>(() => new EffectManager());
 
-        public static Demo2DManager Instance => lazyDemo2DManager.Value;
+        public static EffectManager Instance => lazyEffectManager.Value;
 
         private List<IView> viewList = new List<IView>();
         public int viewCount => viewList.Count;
@@ -20,7 +20,7 @@ namespace PerformanceDemo.Demo2D
 
         public static void CleanUp()
         {
-            lazyDemo2DManager = new Lazy<Demo2DManager>(() => new Demo2DManager());
+            lazyEffectManager = new Lazy<EffectManager>(() => new EffectManager());
             GC.Collect();
         }
 

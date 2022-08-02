@@ -1,0 +1,24 @@
+{
+    "name": "com.luciantest.fpstools",
+    "version": "0.0.1",
+    "displayName": "Fps Tools",
+    "description": "Tools for show different fps",
+    "documentationUrl":"../README.md",
+    "changeLogoUrl":"",
+    "licensesUrl":"",
+    "dependencies": {
+        "com.unity.textmeshpro":{
+            "version": "3.0.6",
+            "depth": 0,
+            "source": "registry",
+            "dependencies": {
+              "com.unity.ugui": "1.0.0"
+            },
+            "url": "https://packages.unity.com"
+          }
+    },
+    "author": {
+        "name":"Lucian",
+        "email": "lucianniwanin168@gmail.com"
+    }
+}

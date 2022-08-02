@@ -2,7 +2,6 @@ namespace PerformanceDemo
 {
     using UnityEngine;
     using IModels;
-    using Demo2D;
 
     public class Main : MonoBehaviour
     {
@@ -12,8 +11,8 @@ namespace PerformanceDemo
 
         private void EffectCall()
         {
-            if (Demo2DManager.Instance.viewCount < viewCount) return;
-            Demo2DManager.Instance.EffectCallAll();
+            if (EffectManager.Instance.viewCount < viewCount) return;
+            EffectManager.Instance.EffectCallAll();
         }
 
         private void Start()
@@ -26,7 +25,7 @@ namespace PerformanceDemo
 
         private void OnDestroy()
         {
-            Demo2DManager.CleanUp();
+            EffectManager.CleanUp();
         }
     }
 }

@@ -113,7 +113,7 @@
         private void Start()
         {
             lazyImageHeight = new Lazy<float>(() => imageRootList[0].rect.height);
-            Demo2DManager.Instance.AddView(this);
+            EffectManager.Instance.AddView(this);
             InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
 
             Vector3 pos = new Vector3(0f, 340f, 0f);

@@ -26,7 +26,7 @@ namespace PerformanceDemo.Demo2D
 
         private void Start()
         {
-            Demo2DManager.Instance.AddView(this);
+            EffectManager.Instance.AddView(this);
             InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
         }
 
@@ -50,7 +50,7 @@ namespace PerformanceDemo.Demo2D
         public void EffectCall()
         {
             string pictureName = prefix + index.ToString();
-            picture.sprite = Demo2DManager.Instance.GetSprite(imageAtlas, pictureName);
+            picture.sprite = EffectManager.Instance.GetSprite(imageAtlas, pictureName);
             ++index;
             if (index >= 360) index = 0;
         }

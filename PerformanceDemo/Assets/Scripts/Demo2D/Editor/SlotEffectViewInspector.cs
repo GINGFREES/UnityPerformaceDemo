@@ -25,7 +25,7 @@ namespace PerformanceDemo.Demo2D.Inspector
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    SlotEffectView v = Demo2DManager.Instance.GetViewByIndex(i) as SlotEffectView;
+                    SlotEffectView v = EffectManager.Instance.GetViewByIndex(i) as SlotEffectView;
                     v.StartSlotEffect();
                 }
             }
@@ -34,7 +34,7 @@ namespace PerformanceDemo.Demo2D.Inspector
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    SlotEffectView v = Demo2DManager.Instance.GetViewByIndex(i) as SlotEffectView;
+                    SlotEffectView v = EffectManager.Instance.GetViewByIndex(i) as SlotEffectView;
                     v.StopSlotEffect();
                 }
             }
