@@ -5,6 +5,7 @@ namespace PerformanceDemo
     using UnityEngine;
     using UnityEngine.U2D;
     using IModels;
+    using System.Linq;
 
     public class EffectManager
     {
@@ -24,7 +25,11 @@ namespace PerformanceDemo
             GC.Collect();
         }
 
-        public void AddView(IView view) => viewList.Add(view);
+        public void AddView(IView view)
+        {
+            viewList.Add(view);
+            viewList.Sort((x, y) => x.Fps - y.Fps);
+        }
 
         public void EffectCallAll() => viewList.ForEach(x => x.EffectCall());
 

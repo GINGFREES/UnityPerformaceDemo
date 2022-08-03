@@ -36,6 +36,10 @@ namespace PerformanceDemo
         private Lazy<Vector2> LazyCenterBottomAnchor = new Lazy<Vector2>(() => new Vector2(0.5f, 0f));
 
         private Action effectAction;
+        private Action effect30;
+        private Action effect60;
+        private Action effect90;
+        private Action effect120;
 
         private void EffectCall()
         {
@@ -44,6 +48,10 @@ namespace PerformanceDemo
         }
 
         private void EffectCallFps() => effectAction?.Invoke();
+        //private void EffectFps30() => effect30?.Invoke();
+        //private void EffectFps60() => effect60?.Invoke();
+        //private void EffectFps90() => effect90?.Invoke();
+        //private void EffectFps120() => effect120?.Invoke();
 
         private void Start()
         {
@@ -162,6 +170,32 @@ namespace PerformanceDemo
             if (EffectManager.Instance.viewCount <= 3) return;
             ResetRect();
             InvokeRepeating("EffectCall", 0f, (duration / 360f));
+            //for (int i = 0; i < EffectManager.Instance.viewCount; i++)
+            //{
+            //    IView view = EffectManager.Instance.GetViewByIndex(i);
+            //    float time = duration * (120f / view.Fps) / 360f;
+            //    effectAction = view.EffectCall;
+            //    if (i == 0)
+            //    {
+            //        effect30 = view.EffectCall;
+            //        InvokeRepeating("EffectFps30", 0f, time);
+            //    }
+            //    else if (i == 1)
+            //    {
+            //        effect60 = view.EffectCall;
+            //        InvokeRepeating("EffectFps60", 0f, time);
+            //    }
+            //    else if (i == 2)
+            //    {
+            //        effect90 = view.EffectCall;
+            //        InvokeRepeating("EffectFps90", 0f, time);
+            //    }
+            //    else if (i == 3)
+            //    {
+            //        effect120 = view.EffectCall;
+            //        InvokeRepeating("EffectFps120", 0f, time);
+            //    }
+            //}
             StopAllRender();
             RenderInvoke();
         }

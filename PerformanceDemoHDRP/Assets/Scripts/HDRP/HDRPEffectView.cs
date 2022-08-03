@@ -18,6 +18,8 @@ namespace PerformanceDemo.HDRP
         public void EffectCall() { }
         public void RenderInvoke() => RenderCall();
         public void StopRender() => Stop();
+        public void StartEffect() { }
+        public void StopEffect() { }
 
         private void Start()
         {

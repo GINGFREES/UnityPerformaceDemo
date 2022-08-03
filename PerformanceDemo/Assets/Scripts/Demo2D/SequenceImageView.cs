@@ -55,6 +55,24 @@ namespace PerformanceDemo.Demo2D
 
         public void EffectCall()
         {
+            if (Fps == 30 && index % 4 != 0)
+            {
+                ++index;
+                if (index >= 360) index = 0;
+                return;
+            }
+            else if (Fps == 60 && index % 2 != 0)
+            {
+                ++index;
+                if (index >= 360) index = 0;
+                return;
+            }
+            else if (Fps == 90 && index % 7 == 0)
+            {
+                ++index;
+                if (index >= 360) index = 0;
+                return;
+            }
             string pictureName = prefix + index.ToString();
             picture.sprite = EffectManager.Instance.GetSprite(imageAtlas, pictureName);
             ++index;
