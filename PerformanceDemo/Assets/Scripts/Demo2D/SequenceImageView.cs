@@ -27,7 +27,6 @@ namespace PerformanceDemo.Demo2D
         private void Start()
         {
             EffectManager.Instance.AddView(this);
-            InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
         }
 
         private void Update()
@@ -46,6 +45,13 @@ namespace PerformanceDemo.Demo2D
                 fpsCount = 0;
             }
         }
+
+        public void RenderInvoke() => InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
+
+        public void StopRender() => Stop();
+
+        public void StartEffect() { }
+        public void StopEffect() { }
 
         public void EffectCall()
         {

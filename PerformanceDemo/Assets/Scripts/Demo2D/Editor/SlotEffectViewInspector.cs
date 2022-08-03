@@ -13,12 +13,12 @@ namespace PerformanceDemo.Demo2D.Inspector
 
             if (GUILayout.Button("Start"))
             {
-                wnd.StartSlotEffect();
+                wnd.StartEffect();
             }
 
             if (GUILayout.Button("Stop"))
             {
-                wnd.StopSlotEffect();
+                wnd.StopEffect();
             }
 
             if (GUILayout.Button("StartAll"))
@@ -26,7 +26,7 @@ namespace PerformanceDemo.Demo2D.Inspector
                 for (int i = 0; i < 4; i++)
                 {
                     SlotEffectView v = EffectManager.Instance.GetViewByIndex(i) as SlotEffectView;
-                    v.StartSlotEffect();
+                    v.StartEffect();
                 }
             }
 
@@ -35,7 +35,7 @@ namespace PerformanceDemo.Demo2D.Inspector
                 for (int i = 0; i < 4; i++)
                 {
                     SlotEffectView v = EffectManager.Instance.GetViewByIndex(i) as SlotEffectView;
-                    v.StopSlotEffect();
+                    v.StopEffect();
                 }
             }
         }

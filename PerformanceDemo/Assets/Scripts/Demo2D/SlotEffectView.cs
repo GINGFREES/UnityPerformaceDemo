@@ -86,12 +86,12 @@
             }
         }
 
-        public void StartSlotEffect()
+        private void StartSlotEffect()
         {
             isReady = true;
         }
 
-        public void StopSlotEffect()
+        private void StopSlotEffect()
         {
             if (!isReady) return;
             isStop = true;
@@ -110,11 +110,21 @@
             UpdateMove();
         }
 
+        public void RenderInvoke()
+        {
+            InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
+        }
+
+        public void StopRender() => Stop();
+
+        public void StartEffect() => StartSlotEffect();
+
+        public void StopEffect() => StopSlotEffect();
+
         private void Start()
         {
             lazyImageHeight = new Lazy<float>(() => imageRootList[0].rect.height);
             EffectManager.Instance.AddView(this);
-            InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
 
             Vector3 pos = new Vector3(0f, 340f, 0f);
             for (int i = 0; i < imageRootList.Length; ++i)

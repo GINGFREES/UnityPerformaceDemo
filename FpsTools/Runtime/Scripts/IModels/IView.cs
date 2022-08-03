@@ -6,5 +6,9 @@ namespace PerformanceDemo.IModels
     {
         public int Fps { get; set; }
         public void EffectCall();
+        public void RenderInvoke();
+        public void StopRender();
+        public void StartEffect();
+        public void StopEffect();
     }
 }

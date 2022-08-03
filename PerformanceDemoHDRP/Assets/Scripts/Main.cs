@@ -1,8 +1,8 @@
+﻿using UnityEngine;
+using System.Collections;
+
 namespace PerformanceDemo
 {
-    using UnityEngine;
-    using IModels;
-
     public class Main : MonoBehaviour
     {
         // Start is called before the first frame update
@@ -23,7 +23,7 @@ namespace PerformanceDemo
             }
         }
 
-        private void OnDestroy()
+        private void OnApplicationQuit()
         {
             EffectManager.CleanUp();
         }

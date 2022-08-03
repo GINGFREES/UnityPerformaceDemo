@@ -16,6 +16,8 @@ namespace PerformanceDemo.HDRP
         private float lastUpdateFpsTime = 0f;
 
         public void EffectCall() { }
+        public void RenderInvoke() => RenderCall();
+        public void StopRender() => Stop();
 
         private void Start()
         {

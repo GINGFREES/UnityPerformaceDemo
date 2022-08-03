@@ -16,5 +16,7 @@
             renderCamera.Render();
             fpsCount++;
         }
+
+        protected void Stop() => CancelInvoke();
     }
 }

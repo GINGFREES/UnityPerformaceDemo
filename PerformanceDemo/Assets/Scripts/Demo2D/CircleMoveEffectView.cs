@@ -35,10 +35,16 @@ namespace PerformanceDemo.Demo2D
                 new Vector3(circleRadius * Mathf.Sin(cornerAngle), circleRadius * Mathf.Cos(cornerAngle));
         }
 
+        public void RenderInvoke() => InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
+
+        public void StopRender() => Stop();
+
+        public void StartEffect() { }
+        public void StopEffect() { }
+
         private void Start()
         {
             effectObj.transform.localPosition = new Vector3(0f, circleRadius, 0f);
-            InvokeRepeating("RenderCall", 0f, (1f / (float)Fps));
             EffectManager.Instance.AddView(this);
         }
 
