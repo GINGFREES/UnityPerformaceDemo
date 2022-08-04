@@ -165,6 +165,7 @@ namespace PerformanceDemo
 
         private void OnBtnFpsAllClick()
         {
+            Application.targetFrameRate = 120;
             CancelInvoke();
             if (EffectManager.Instance.viewCount <= 3) return;
             ResetRect();
@@ -175,6 +176,7 @@ namespace PerformanceDemo
 
         private void OnBtnFps30Click()
         {
+            Application.targetFrameRate = 30;
             CancelInvoke();
             if (EffectManager.Instance.viewCount <= 0) return;
             int index = (int)RenderType.FPS_30;
@@ -188,6 +190,7 @@ namespace PerformanceDemo
 
         private void OnBtnFps60Click()
         {
+            Application.targetFrameRate = 60;
             CancelInvoke();
             if (EffectManager.Instance.viewCount <= 1) return;
             int index = (int)RenderType.FPS_60;
@@ -201,6 +204,7 @@ namespace PerformanceDemo
 
         private void OnBtnFps90Click()
         {
+            Application.targetFrameRate = 90;
             CancelInvoke();
             if (EffectManager.Instance.viewCount <= 2) return;
             int index = (int)RenderType.FPS_90;
@@ -214,6 +218,7 @@ namespace PerformanceDemo
 
         private void OnBtnFps120Click()
         {
+            Application.targetFrameRate = 120;
             CancelInvoke();
             if (EffectManager.Instance.viewCount <= 3) return;
             int index = (int)RenderType.FPS_120;
