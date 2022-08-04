@@ -30,16 +30,8 @@ namespace PerformanceDemo
 
         private Lazy<Vector2> LazySmallSize => new Lazy<Vector2>(() => new Vector2(480f, 270f));
         private Lazy<Vector2> LazyFullSize => new Lazy<Vector2>(() => new Vector2(960f, 540f));
-        private Lazy<Vector2> LazyLeftTopAnchor = new Lazy<Vector2>(() => new Vector2(0f, 1f));
-        private Lazy<Vector2> LazyLeftBottomAnchor = new Lazy<Vector2>(() => new Vector2(0f, 0f));
-        private Lazy<Vector2> LazyCenterTopAnchor = new Lazy<Vector2>(() => new Vector2(0.5f, 1f));
-        private Lazy<Vector2> LazyCenterBottomAnchor = new Lazy<Vector2>(() => new Vector2(0.5f, 0f));
 
         private Action effectAction;
-        private Action effect30;
-        private Action effect60;
-        private Action effect90;
-        private Action effect120;
 
         private void EffectCall()
         {
@@ -48,18 +40,10 @@ namespace PerformanceDemo
         }
 
         private void EffectCallFps() => effectAction?.Invoke();
-        //private void EffectFps30() => effect30?.Invoke();
-        //private void EffectFps60() => effect60?.Invoke();
-        //private void EffectFps90() => effect90?.Invoke();
-        //private void EffectFps120() => effect120?.Invoke();
 
         private void Start()
         {
-            //if (viewCount > 0)
-            //{
-            //    InvokeRepeating("EffectCall", 0f, (duration / 360f));
-            //}
-
+            Debug.LogWarning($"[Lucian :] current frame rate : {Application.targetFrameRate}");
             btnStart.onClick.AddListener(OnBtnStartClick);
             btnStop.onClick.AddListener(OnBtnStopClick);
             btnClose.onClick.AddListener(OnBtnCloseClick);
@@ -113,12 +97,12 @@ namespace PerformanceDemo
             }
         }
 
-        private void SetBtnAnchorPosition(GameObject btn, Vector2 anchorMin)
+        private void SetBtnAnchorPosition(GameObject btn, Vector2 anchor)
         {
             RectTransform rect = btn.GetComponent<RectTransform>();
-            rect.anchorMin = anchorMin;
-            rect.anchorMax = anchorMin;
-            rect.pivot = anchorMin;
+            rect.anchorMin = anchor;
+            rect.anchorMax = anchor;
+            rect.pivot = anchor;
             Vector3 pos = rect.anchoredPosition;
             pos.x = 0f;
             rect.anchoredPosition = pos;
@@ -135,32 +119,47 @@ namespace PerformanceDemo
                 fpsRects[i].sizeDelta = (index == -1)
                     ? LazySmallSize.Value
                     : LazyFullSize.Value;
+
+                if (index == -1)
+                {
+                    if (i == 0) fpsRects[i].pivot = new Vector2(1f, 0f);
+                    else if (i == 1) fpsRects[i].pivot = Vector2.one;
+                    else if (i == 2) fpsRects[i].pivot = Vector2.zero;
+                    else if (i == 3) fpsRects[i].pivot = new Vector2(0f, 1f);
+
+                }
+                else
+                {
+                    fpsRects[i].pivot = new Vector2(0.5f, 0.5f);
+                }
+
+                fpsRects[i].localPosition = Vector2.zero;
                 fpsRects[i].gameObject.SetActive(true);
             }
 
-            if (index != -1)
+            if (index == -1)
             {
-                SetBtnAnchorPosition(btnStart.gameObject, LazyLeftTopAnchor.Value);
-                SetBtnAnchorPosition(btnStop.gameObject, LazyLeftTopAnchor.Value);
-                SetBtnAnchorPosition(btnClose.gameObject, LazyLeftTopAnchor.Value);
+                SetBtnAnchorPosition(btnStart.gameObject, new Vector2(0.5f, 1f));
+                SetBtnAnchorPosition(btnStop.gameObject, new Vector2(0.5f, 1f));
+                SetBtnAnchorPosition(btnClose.gameObject, new Vector2(0.5f, 1f));
 
-                SetBtnAnchorPosition(btnFpsAll.gameObject, LazyLeftBottomAnchor.Value);
-                SetBtnAnchorPosition(btnFps30.gameObject, LazyLeftBottomAnchor.Value);
-                SetBtnAnchorPosition(btnFps60.gameObject, LazyLeftBottomAnchor.Value);
-                SetBtnAnchorPosition(btnFps90.gameObject, LazyLeftBottomAnchor.Value);
-                SetBtnAnchorPosition(btnFps120.gameObject, LazyLeftBottomAnchor.Value);
+                SetBtnAnchorPosition(btnFpsAll.gameObject, new Vector2(0.5f, 0f));
+                SetBtnAnchorPosition(btnFps30.gameObject, new Vector2(0.5f, 0f));
+                SetBtnAnchorPosition(btnFps60.gameObject, new Vector2(0.5f, 0f));
+                SetBtnAnchorPosition(btnFps90.gameObject, new Vector2(0.5f, 0f));
+                SetBtnAnchorPosition(btnFps120.gameObject, new Vector2(0.5f, 0f));
             }
             else
             {
-                SetBtnAnchorPosition(btnStart.gameObject, LazyCenterTopAnchor.Value);
-                SetBtnAnchorPosition(btnStop.gameObject, LazyCenterTopAnchor.Value);
-                SetBtnAnchorPosition(btnClose.gameObject, LazyCenterTopAnchor.Value);
+                SetBtnAnchorPosition(btnStart.gameObject, new Vector2(0f, 1f));
+                SetBtnAnchorPosition(btnStop.gameObject, new Vector2(0f, 1f));
+                SetBtnAnchorPosition(btnClose.gameObject, new Vector2(0f, 1f));
 
-                SetBtnAnchorPosition(btnFpsAll.gameObject, LazyCenterBottomAnchor.Value);
-                SetBtnAnchorPosition(btnFps30.gameObject, LazyCenterBottomAnchor.Value);
-                SetBtnAnchorPosition(btnFps60.gameObject, LazyCenterBottomAnchor.Value);
-                SetBtnAnchorPosition(btnFps90.gameObject, LazyCenterBottomAnchor.Value);
-                SetBtnAnchorPosition(btnFps120.gameObject, LazyCenterBottomAnchor.Value);
+                SetBtnAnchorPosition(btnFpsAll.gameObject, Vector2.zero);
+                SetBtnAnchorPosition(btnFps30.gameObject, Vector2.zero);
+                SetBtnAnchorPosition(btnFps60.gameObject, Vector2.zero);
+                SetBtnAnchorPosition(btnFps90.gameObject, Vector2.zero);
+                SetBtnAnchorPosition(btnFps120.gameObject, Vector2.zero);
             }
         }
 
@@ -170,32 +169,6 @@ namespace PerformanceDemo
             if (EffectManager.Instance.viewCount <= 3) return;
             ResetRect();
             InvokeRepeating("EffectCall", 0f, (duration / 360f));
-            //for (int i = 0; i < EffectManager.Instance.viewCount; i++)
-            //{
-            //    IView view = EffectManager.Instance.GetViewByIndex(i);
-            //    float time = duration * (120f / view.Fps) / 360f;
-            //    effectAction = view.EffectCall;
-            //    if (i == 0)
-            //    {
-            //        effect30 = view.EffectCall;
-            //        InvokeRepeating("EffectFps30", 0f, time);
-            //    }
-            //    else if (i == 1)
-            //    {
-            //        effect60 = view.EffectCall;
-            //        InvokeRepeating("EffectFps60", 0f, time);
-            //    }
-            //    else if (i == 2)
-            //    {
-            //        effect90 = view.EffectCall;
-            //        InvokeRepeating("EffectFps90", 0f, time);
-            //    }
-            //    else if (i == 3)
-            //    {
-            //        effect120 = view.EffectCall;
-            //        InvokeRepeating("EffectFps120", 0f, time);
-            //    }
-            //}
             StopAllRender();
             RenderInvoke();
         }
