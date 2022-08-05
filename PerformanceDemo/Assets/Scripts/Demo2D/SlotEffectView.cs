@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.UI;
-    using UnityEngine.U2D;
     using IModels;
     using Models;
 
@@ -25,6 +23,7 @@
         private Dictionary<int, int> nextIndexDics = new Dictionary<int, int>();
         private List<Vector3> indexPosList = new List<Vector3>();
 
+        private Lazy<int> lazyImageCount = null;
 
         public int Fps
         {
@@ -41,6 +40,7 @@
                 imageRootList[i].localPosition -= new Vector3(0f, move, 0f);
             }
 
+            int[] randomIndexes = SlotManager.Instance.GetRandomIndex(lazyImageCount.Value);
 
             for (int i = 0; i < imageRootList.Length; ++i)
             {
@@ -48,7 +48,8 @@
                 if (imageRootList[i].localPosition.y < downEdge)
                 {
                     imageRootList[i].localPosition = new Vector3(0f, upperEdge + lazyImageHeight.Value - move, 0f);
-                    imageRootList[i].GetComponent<SlotEffectImage>().RandomImage();
+                    SlotEffectImage effectImage = imageRootList[i].GetComponent<SlotEffectImage>();
+                    effectImage.UpdateImage(randomIndexes);
                     needAddIndex = true;
                 }
 
@@ -124,6 +125,7 @@
         private void Start()
         {
             lazyImageHeight = new Lazy<float>(() => imageRootList[0].rect.height);
+            lazyImageCount = new Lazy<int>(() => imageRootList[0].GetComponent<SlotEffectImage>().ImagesCount);
             EffectManager.Instance.AddView(this);
 
             Vector3 pos = new Vector3(0f, 340f, 0f);
@@ -139,13 +141,17 @@
                 }
             }
 
+            int[] randomIndexes = SlotManager.Instance.GetRandomIndex(lazyImageCount.Value);
+
             for (int i = 0; i < imageRootList.Length; ++i)
             {
                 indexPosList.Add(pos);
-                imageRootList[i].GetComponent<SlotEffectImage>().RandomImage();
+                SlotEffectImage effectImage = imageRootList[i].GetComponent<SlotEffectImage>();
+                effectImage.UpdateImage(randomIndexes);
                 pos -= new Vector3(0f, 170f, 0f);
             }
 
+            //SlotManager.Instance.CleanUpUpdateTime();
         }
 
         private void Update()
@@ -163,6 +169,11 @@
                 lastUpdateFpsTime = current;
                 fpsCount = 0;
             }
+        }
+
+        private void OnApplicationQuit()
+        {
+            SlotManager.CleanUp();
         }
     }
 }

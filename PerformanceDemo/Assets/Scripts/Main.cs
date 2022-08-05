@@ -43,6 +43,7 @@ namespace PerformanceDemo
 
         private void Start()
         {
+            Application.targetFrameRate = 120;
             Debug.LogWarning($"[Lucian :] current frame rate : {Application.targetFrameRate}");
             btnStart.onClick.AddListener(OnBtnStartClick);
             btnStop.onClick.AddListener(OnBtnStopClick);
@@ -218,7 +219,7 @@ namespace PerformanceDemo
 
         private void OnBtnFps120Click()
         {
-            Application.targetFrameRate = 120;
+            Application.targetFrameRate = 30;
             CancelInvoke();
             if (EffectManager.Instance.viewCount <= 3) return;
             int index = (int)RenderType.FPS_120;

@@ -3,28 +3,27 @@
     using UnityEngine;
     using UnityEngine.UI;
     using UnityEngine.U2D;
-    using System.Collections.Generic;
 
     public class SlotEffectImage : MonoBehaviour
     {
         [SerializeField] private SpriteAtlas[] spriteAtlases;
         [SerializeField] private Image[] imageList;
 
-        private Dictionary<string, Sprite> spriteDics = new Dictionary<string, Sprite>();
+        public int ImagesCount => imageList.Length;
 
-        public void RandomImage()
+        private void UpdateImageBySprites(int index, int atlasIndex)
         {
-            for (int i = 0; i < imageList.Length; i++)
-            {
-                int atlasIndex = Random.Range(0, spriteAtlases.Length - 1);
-                string name = $"Icon_0{atlasIndex + 1}_00";
-                if (!spriteDics.ContainsKey(name))
-                {
-                    spriteDics.Add(name, spriteAtlases[atlasIndex].GetSprite(name));
-                }
-                imageList[i].sprite = spriteDics[name];
-            }
+            string name = $"Icon_0{atlasIndex + 1}_00";
+            Sprite sprite = SlotManager.Instance.GetRandomSprite(name, spriteAtlases[atlasIndex]);
+            imageList[index].sprite = sprite;
+        }
 
+        public void UpdateImage(int[] randomIndexes)
+        {
+            for (int i = 0; i < ImagesCount; i++)
+            {
+                UpdateImageBySprites(i, randomIndexes[i]);
+            }
         }
     }
 }
