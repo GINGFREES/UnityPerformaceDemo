@@ -30,6 +30,7 @@ namespace PerformanceDemo.Demo2D
                 sprites.Add(name, spriteAtlas.GetSprite(name));
             }
             return sprites[name];
+            //return spriteAtlas.GetSprite(name);
         }
 
         public int[] GetRandomIndex(int count)
